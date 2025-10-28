@@ -1,19 +1,20 @@
 import conf from "../conf/conf";
-
 import { Client, Account, ID } from "appwrite";
 
 export class AuthService {
-  client = new client();
+  client = new Client();
   account;
 
+  //   CONSTRUCTOR FOR API
   constructor() {
     this.client
       .setEndpoint(conf.appwriteUrl) // Your API Endpoint
       .setProject(conf.appwriteProjectId);
 
     this.account = new Account(this.client);
-  } 
+  }
 
+  //   CREATE ACCOUNT
   async createAccount({ email, password, name }) {
     try {
       const userAccount = await this.account.create(
@@ -32,6 +33,7 @@ export class AuthService {
     }
   }
 
+  //   LOGIN
   async login({ email, password }) {
     try {
       return await this.account.createEmailPasswordSession(email, password);
@@ -40,6 +42,7 @@ export class AuthService {
     }
   }
 
+  //   CURRENT USER
   async getCurrentUser() {
     try {
       return await this.account.get();
@@ -50,11 +53,12 @@ export class AuthService {
     return null;
   }
 
-  async logout(){
+  //   LOGOUT
+  async logout() {
     try {
-            return await this.account.deleteSessions();
+      return await this.account.deleteSessions();
     } catch (error) {
-        throw error;
+      throw error;
     }
   }
 }
