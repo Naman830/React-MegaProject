@@ -14,7 +14,7 @@ export class Service {
       .setProject(conf.appwriteProjectId);
 
     this.Databases = new Databases(this.client);
-    this.bucket = Storage(this.client);
+    this.bucket = new Storage(this.client);
   }
 
   //   Create Post

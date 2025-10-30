@@ -28,3 +28,5 @@ const EditPost = () => {
     </div>
   ) : null;
 };
+
+export default EditPost
