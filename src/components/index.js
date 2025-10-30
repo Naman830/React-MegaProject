@@ -8,6 +8,9 @@ import PostCard from "./PostCard";
 import Select from "./Select";
 import Input from './Input'
 import RTE from "./RTE";
+import Signup from "./pages/Signup";
+import Post from './Post'
+import Login from "./pages/Login";
 
 export {
     Header,
@@ -20,4 +23,7 @@ export {
     Select,
     Input,
     RTE,
+    Signup,
+    Post,
+    Login,
 }
